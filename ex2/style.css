@@ -1,0 +1,50 @@
+#squares{
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.square1{
+    width: 200px;
+    height: 200px;
+    background-color: #8dae87;
+    margin: 0 10px;
+}
+
+.square2{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(206, 24, 24);
+    margin: 0 10px;
+}
+
+.square3{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    margin: 0 10px;
+}
+
+.square4{
+    width: 200px;
+    height: 200px;
+    background-color: yellowgreen;
+    margin: 0 10px;
+}
+
+#second-square{
+    display: flex;
+    justify-content: center;
+}
+
+.second-square{
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+    margin: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

@@ -1,0 +1,45 @@
+.squares{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.square1{
+    width: 200px;
+    height: 200px;
+    background-color: #8dae87;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square2{
+    width: 200px;
+    height: 200px;
+    background-color: #8dae87;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square3{
+    width: 200px;
+    height: 200px;
+    background-color: #8dae87;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square4{
+    width: 200px;
+    height: 200px;
+    background-color: #8dae87;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
