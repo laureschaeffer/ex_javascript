@@ -1,0 +1,9 @@
+#citations{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.card-citation{
+    width: 500px;
+    height: 200px;
+    background-color: rgb(209, 209, 209);
+}

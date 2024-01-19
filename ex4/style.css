@@ -1,7 +1,16 @@
+#wrapper{
+    background-color: rgb(192, 192, 192);
+}
+
+#follow{
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+}
+
 #networks{
     display: flex;
     justify-content: center;
-    background-color: #c0c0c0;
 }
 
 .network{
@@ -10,8 +19,15 @@
     margin: 2em;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    width: 80px;
+    height: 80px;
 }
-
+.network p{
+    display: none;
+    opacity: 0.8;
+    color: white;
+}
 .network a{
     text-decoration: none;
     font-size: 2em;
@@ -28,4 +44,21 @@
 
 .instagram{
     background-color: #d42f6b;
+}
+
+.newNetwork{
+    display: flex;
+    padding: 1em;
+    margin: 2em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px black;
+}
+
+.newNetwork p{
+    display: block;
 }
