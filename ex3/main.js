@@ -1,28 +1,35 @@
-carres = document.querySelectorAll('.square');
-var clickCounter=0;
+// constantes des quatres carrés
+const carres = document.querySelectorAll('.square');
+
 
 carres.forEach(item => {
     item.addEventListener('click', function(){
-        changeSize(item);
+        changeSquare(item);
 })})
 
 
-function changeSize(square) {
-    clickCounter++;
-    if (clickCounter %2==1){
-        square.style.height = "180px";
-        square.style.width = "180px";
-        square.style.backgroundColor="#aa716c";
+function changeSquare(square) {
+    square.classList.toggle("squareRed");
+  }
 
-        //rotation
-    }
-    else if (clickCounter % 2==0){
-        square.style.height = "200px";
-        square.style.width = "200px";
-        square.style.backgroundColor="#8dae87";
+// function changeSize(square) {
+//     clickCounter++;
+//     if (clickCounter %2==1){ //premier clic, on applique un changement
+//         square.style.height = "180px";
+//         square.style.width = "180px";
+//         square.style.backgroundColor="#aa716c";
 
-        //rotation
-    }
+//         //rotation
 
- }
 
+
+//     }
+//     else if (clickCounter % 2==0){ //second clic, on retourne à la disposition initiale
+//         square.style.height = "200px";
+//         square.style.width = "200px";
+//         square.style.backgroundColor="#8dae87";
+
+//         //rotation
+//     }
+
+//  }
