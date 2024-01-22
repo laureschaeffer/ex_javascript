@@ -7,6 +7,7 @@ var quotes={
 }
 var tailleTab = Object.keys(quotes).length ;// nombre de clés d'un tableau associatif
 
+
 for (let i=0 ; i < tailleTab ; i++){
     createElement()
 }
@@ -18,7 +19,13 @@ function createElement() {
 
     // and give it some content
 
-    const newContent = document.createTextNode(tailleTab);
+    result="";
+    for (const [auteur, citation] of Object.entries(quotes)) {
+        result+=citation + auteur;
+      }
+
+
+    const newContent = document.createTextNode(result);
     
 
     // add the text node to the newly created div
@@ -31,25 +38,10 @@ function createElement() {
 
 
 
-
-
-// function afficherCitation(){
-
-//     const newCitation = textCitation.cloneNode(true);
-    
-
-    
-
 //     for(quote in quotes) {
 //         console.log(quotes[quote]) // renvoie valeur
 //     }
 
-//     for (const [auteur, citation] of Object.entries(quotes)) {
-//         result+=(` "${citation}" \n ${auteur} \n \n`);
-//       }
-    
-    
-// }
 
 
-// const textCitation = document.querySelector('.card-citation');
+
