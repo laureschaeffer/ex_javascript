@@ -1,9 +1,17 @@
-#citations{
+div{
+    display: flex;
+    position: relative;
     font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    align-items: center;
+    width: 80em;
+    height: 10em;
+    margin: 5em;
+    background-color: rgb(209, 209, 209);
 }
 
-.card-citation{
-    width: 500px;
-    height: 200px;
-    background-color: rgb(209, 209, 209);
+button{
+    position: absolute;
+    top: 10%;
+    right: 0;
 }
