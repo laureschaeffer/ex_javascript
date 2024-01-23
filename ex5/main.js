@@ -15,54 +15,46 @@ function createElement(element) {
     // ajouter cet élément dans la div
     newDiv.appendChild(newContent);
     // aajouter le tout dans le DOM avant la fin du body
-    const citations = document.querySelector('script');
-    document.body.insertBefore(newDiv, citations);
+    const script = document.querySelector('script');
+    document.body.insertBefore(newDiv, script);
 
     //boutons favoris
-    createButton = document.createElement('i');
-    createButton.setAttribute('class', 'fa-regular fa-heart');
-    newDiv.appendChild(createButton);
+    button = document.createElement('i');
+    button.setAttribute('class', 'fa-regular fa-heart'); //bouton coeur vide
+    newDiv.appendChild(button);
 
-    
     //boutons favoris sélectionnés
-    createButton.addEventListener('click', addToFav())
-      // localStorage.setItem("favoris", element)
+    button.addEventListener('click', function(){
+      addToFav(element);
+    })
 
-    function addToFav(){
-      let favorisTab={
-        favoris: "",
-      }
-      favorisJSON= JSON.stringify(favorisTab);
-      localStorage.setItem(element, favorisJSON);
+
+
+    function addToFav(element){
+      localStorage.setItem(element, element); //ajouter au localstorage
+      button.className ="fa-solid fa-heart"; //bouton coeur rempli
+      newDiv.appendChild(button);
+
+      const stock = localStorage.getItem(element); //chercher la valeur
+
+      if (stock){
+        console.log("ajouté");
+        button.className ="fa-solid fa-heart"; //bouton coeur rempli
+        newDiv.appendChild(button);
+ 
+       } else{
+        localStorage.removeItem(element)
+        console.log("retiré")
+       }
+    }
 
     }
 
-  }
 
 for (const [auteur, citation] of Object.entries(quotes)) {
     createElement(`"${citation}" ${auteur}`);
     
   }
-
-
-
-  // favBtn = document.createElement('i');
-  // favBtn.setAttribute('class', 'fa-solid fa-heart');
-  // // newDiv.appendChild(favBtn);
-  // createButton.classList.toggle("favBtn");
-
-    // stock des favoris dans localStorage
-    // function addToFav(){
-    //   favBtn = document.createElement('i');
-    //   favBtn.setAttribute('class', 'fa-solid fa-heart');
-    //   newDiv.appendChild(favBtn);
-    //   createButton.classList.toggle("favBtn");
-    //   localStorage.setItem("A été ajouté aux favoris", element); //dans les données
-    // }
-
-
-    // css
-
 
 // var tailleTab = Object.keys(quotes).length ; nombre de clés d'un tableau associatif
 
