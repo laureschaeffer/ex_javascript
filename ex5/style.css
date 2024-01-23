@@ -1,6 +1,8 @@
-div{
+
+
+.quote{
     display: flex;
-    position: relative;
+    flex-direction: column;
     font-family: 'Courier New', Courier, monospace;
     justify-content: center;
     align-items: center;
@@ -9,11 +11,13 @@ div{
     margin: 5em;
     background-color: rgb(209, 209, 209);
 }
-
-i{
+.quote-author{
+    text-align: end;
+}
+/* i{
     position: absolute;
     top: 10%;
     right: 0;
     font-size: 24px;
     cursor: pointer;
-}
+} */

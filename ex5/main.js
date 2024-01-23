@@ -1,62 +1,76 @@
-var quotes={
-    "Serge Karamazov":"Barrez vous **** de mimes. \t",
-    "Georges Abitbol":"Le train de tes injure roule sur le rail de mon indifférence. ",
-    "Hubert Bonnisseur de la Bath":"Ca ne prenait pas beaucoup plus de temps. ",
-    "Moulinier":"L'habit ne fait pas le moine, mais il fait l'agent... Même non titularisé. ",
-    "Orson Welles":"C'est du vol et du plagiat. J'aime pas trop les voleurs et... ",
-};
-
-
-function createElement(element) {
-    // nouvelle div
-    const newDiv = document.createElement("div");
-    // ajouter 'element' qui contient l'auteur et sa citation
-    const newContent = document.createTextNode(element);
-    // ajouter cet élément dans la div
-    newDiv.appendChild(newContent);
-    // aajouter le tout dans le DOM avant la fin du body
-    const script = document.querySelector('script');
-    document.body.insertBefore(newDiv, script);
-
-    //boutons favoris
-    button = document.createElement('i');
-    button.setAttribute('class', 'fa-regular fa-heart'); //bouton coeur vide
-    newDiv.appendChild(button);
-
-    //boutons favoris sélectionnés
-    button.addEventListener('click', function(){
-      addToFav(element);
-    })
-
-
-
-    function addToFav(element){
-      localStorage.setItem(element, element); //ajouter au localstorage
-      button.className ="fa-solid fa-heart"; //bouton coeur rempli
-      newDiv.appendChild(button);
-
-      const stock = localStorage.getItem(element); //chercher la valeur
-
-      if (stock){
-        console.log("ajouté");
-        button.className ="fa-solid fa-heart"; //bouton coeur rempli
-        newDiv.appendChild(button);
- 
-       } else{
-        localStorage.removeItem(element)
-        console.log("retiré")
-       }
-    }
-
-    }
-
-
-for (const [auteur, citation] of Object.entries(quotes)) {
-    createElement(`"${citation}" ${auteur}`);
-    
+var quotes=[
+  {
+    "id": 1,
+    "author": "Serge Karamazov",
+    "content": "Barrez vous **** de mimes."
+  },
+  {
+    "id": 2,
+    "author": "Georges Abitbol",
+    "content": "Le train de tes injure roule sur le rail de mon indifférence. "
+  },
+  {
+    "id": 3,
+    "author":"Hubert Bonnisseur de la Bath",
+    "content": "Ca ne prenait pas beaucoup plus de temps. "
+  },
+  {
+    "id": 4,
+    "author": "Moulinier",
+    "content": "L'habit ne fait pas le moine, mais il fait l'agent... Même non titularisé. "
+  },
+  {
+    "id": 5,
+    "author": "Orson Welles",
+    "content": "C'est du vol et du plagiat. J'aime pas trop les voleurs et... "
   }
-
-// var tailleTab = Object.keys(quotes).length ; nombre de clés d'un tableau associatif
-
+];
 
 
+let favoriteQuotes = JSON.parse(localStorage.getItem('favoriteQuotes')) || [];
+
+const quoteContainer= document.querySelector('#quoteContainer')
+
+//afficher les citations
+quotes.forEach(quote => {
+  let quoteDiv = document.createElement('div');
+  quoteDiv.classList.add('quote');
+
+  quoteDiv.innerHTML =
+  `<div class='quote-text'>
+    <p class='content'> ${quote.content} </p>
+  </div>
+  <div class='quote-author'>
+    <p>- ${quote.author} </p>
+  </div>
+  <div class='heart' data-id='${quote.id}'>
+    <i class='${favoriteQuotes.includes(quote.id) ? "fa-solid active" : "fa-regular"} fa-heart' tittle='Add favorite'></i>
+  </div> `; // cherche dans le tableau favoris si l'id y est; si oui, il change la classe en coeur plein
+  quoteContainer.appendChild(quoteDiv);
+
+  //ecouteur d'événement sur le coeur
+  const heartIcon = quoteDiv.querySelector('.heart');
+  heartIcon.addEventListener('click', function(){
+    toggleFavorite(quote.id)
+  })
+
+})
+
+
+function toggleFavorite(quoteId){
+  const heartIcon = document.querySelector(`.heart[data-id='${quoteId}'] i`); // récupère le coeur dont l'id est récupéré en paramètre
+
+  if (favoriteQuotes.includes(quoteId)) {
+    favoriteQuotes = favoriteQuotes.filter(id => id !== quoteId); //crée un tableau où on retire la citation dont l'id est passé en paramètre
+    heartIcon.classList.remove('fa-solid');
+    heartIcon.classList.add('fa-regular');
+    heartIcon.classList.remove('active');
+  } else {
+    favoriteQuotes.push(quoteId); //ajoute l'id aux favoris
+    heartIcon.classList.add('fa-solid');
+    heartIcon.classList.remove('fa-regular');
+    heartIcon.classList.add('active')
+  }
+// mettre à jour le localStorage
+  localStorage.setItem('favoriteQuotes', JSON.stringify(favoriteQuotes));
+}
