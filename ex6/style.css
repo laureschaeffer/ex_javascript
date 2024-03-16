@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+}
+
+#wrapper{
+    background: url(morpion.jpg);
+    width: 100%;
+}
+
+#squares{
+    margin: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 5px;
+}
+
+.square{
+    background-color: white;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
