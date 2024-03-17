@@ -3,10 +3,11 @@
 Utilisation de différentes fonctions pour manipuler JS
 
 ### Manipulation :  
-- Add event listener, onclick
+- Add event listener, onclick et keydown
 - Récupérer infos (getComputedStyle)
 - Toggle
 - Transform (css)
+- Jeu morpion
 
 
 ### Utilisation : 
