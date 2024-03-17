@@ -23,10 +23,10 @@ function play(square) {
     
         //si le tour est impair ou pair
         if (countClicker %2==1){
-            var element="O";
+            var element="<i class='fa-regular fa-circle'></i>";
             var tourJoueur="X";
         } else if (countClicker % 2==0){
-            var element="X";
+            var element="<i class='fa-solid fa-x'></i>";
             var tourJoueur="O";
         }  
 

@@ -3,15 +3,19 @@
 }
 
 #wrapper{
-    background: url(morpion.jpg);
     width: 100%;
+    background: url(morpion.jpg);
+}
+
+h1{
+    text-align: center;
 }
 
 #squares{
-    margin: 5%;
     display: grid;
     grid-template-columns: repeat(3, 200px);
     gap: 5px;
+    justify-content: center;
 }
 
 .square{
@@ -20,5 +24,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0.7;
 }
 
+.fa-solid{
+    color: red;
+    font-weight: 900;
+    font-size: xx-large;
+}
+
+.fa-regular{
+    color: green;
+    font-weight: 500;
+    font-size: xx-large;
+}
+
+#tour p{
+    font-size: xx-large;
+    text-align: center;
+    color: white;
+}
