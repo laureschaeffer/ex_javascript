@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Conversion en francs</title>
 </head>
 <body>
-    <h1>Conversion des euros en francs</h1>
-
-    <input type="text" placeholder="Euros" id="conversion">
+    <div id="conversions">
+        <h1>Conversion des euros en francs</h1>
+        <h2>1 euro = 6.55957 francs</h2>
     
+        <p>Valeur en euro</p>
+        <input type="number" class="conversion" name="conversion">
+    
+        <p>Valeur en franc: <span class="resultat">0</span></p>
+        
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

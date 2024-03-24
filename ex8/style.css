@@ -1,0 +1,16 @@
+#conversions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body{
+    background: url(pexels-pixabay-534216.jpg);
+
+}
+
+
+p, h1, h2{
+    color: white;
+    font-size: xx-large;
+}

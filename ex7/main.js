@@ -32,27 +32,22 @@ function showSquare(){
     //si la touche du bas est pressée, supprime le dernier carré
     document.addEventListener("keydown", function(event){
         if (event.key === "ArrowUp"){
-            deleteSquare(newSquare)
+            newSquare.remove();
         }
 
     })
 
-}
-
-//supprimer le carré
-function deleteSquare(newSquare){
-    newSquare.remove()
-}
-
-//tableau de tous les carrés
-const squares = document.querySelectorAll('.square')
-//pour chaque carré ajouter un écouteur d'événement qui le change en noir
-squares.forEach(item => {
-    item.addEventListener('click', function(){
-        squareBlack(item);
-})})
-
-
-function squareBlack(square) {
-    square.style.backgroundColor= "black"
+    //tableau de tous les carrés
+    const squares = document.querySelectorAll('.square')
+    
+    //pour chaque carré ajouter un écouteur d'événement qui le change en noir
+    squares.forEach(item => {
+        item.addEventListener('click', function(){
+            squareBlack(item);
+    })})
+    
+    
+    function squareBlack(square) {
+        square.style.backgroundColor= "black"
+    }
 }
